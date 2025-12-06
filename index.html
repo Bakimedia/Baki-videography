@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Baki Videography – Hochzeiten & Commercials</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Baki Videography – Cinematic Hochzeitsfilme, Commercials und Social Media Videos für Unternehmen." />
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0d0d14;
+      --accent: #e5b567;
+      --accent-soft: rgba(229, 181, 103, 0.15);
+      --text: #f5f5f7;
+      --text-muted: #a0a0b5;
+      --border: #262632;
+      --max-width: 1100px;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #101020 0, #050509 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,5,9,0.95), rgba(5,5,9,0.7), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #f3d9a0);
+      color: #191217;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.7);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background: rgba(15,15,25,0.85);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-soft);
+      background: rgba(25,25,40,0.95);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    /* Hero */
+
+    #start {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 3rem;
+    }
+
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      display: block;
+      font-weight: 300;
+      color: var(--text-muted);
+      font-size: 0.85em;
+      margin-top: 0.4rem;
+    }
+
+    .hero-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 520px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-meta span {
+      opacity: 0.85;
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at top left, rgba(229,181,103,0.25), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(40,40,80,0.9), #050509);
+      border-radius: var(--radius-xl);
+      padding: 1.3rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-frame {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      aspect-ratio: 16/9;
+      background: radial-gradient(circle at center, #1b1b28 0, #050509 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(229,181,103,0.12), transparent 40%, rgba(229,181,103,0.18));
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+
+    .hero-frame-text {
+      position: relative;
+      text-align: center;
+      padding: 1.5rem;
+      z-index: 1;
+    }
+
+    .hero-frame-text h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-frame-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 280px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero-play {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      backdrop-filter: blur(10px);
+      background: rgba(5,5,9,0.7);
+    }
+
+    .hero-tag {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: rgba(5,5,9,0.9);
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      background: rgba(5,5,9,0.9);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #14f195;
+      box-shadow: 0 0 8px rgba(20,241,149,0.8);
+    }
+
+    /* Portfolio */
+
+    #portfolio .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .portfolio-item {
+      background: radial-gradient(circle at top, rgba(229,181,103,0.06), transparent 45%),
+                  linear-gradient(145deg, rgba(15,15,25,0.95), rgba(8,8,15,0.98));
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .portfolio-thumb {
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      aspect-ratio: 16 / 9;
+      background: radial-gradient(circle at center, #1b1b2a 0, #050509 60%);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-thumb::after {
+      content: "▶";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 6px 20px rgba(0,0,0,0.9);
+    }
+
+    .portfolio-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .portfolio-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .portfolio-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Services */
+
+    #leistungen .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, rgba(229,181,103,0.04), transparent 55%),
+                  linear-gradient(160deg, rgba(12,12,20,0.95), rgba(5,5,9,0.98));
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .service-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .service-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* About */
+
+    #ueber-mich .about-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    .about-highlight {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top left, rgba(229,181,103,0.08), transparent 55%),
+                  linear-gradient(150deg, rgba(12,12,20,0.98), rgba(5,5,9,0.98));
+      padding: 1.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .about-highlight strong {
+      color: var(--text);
+    }
+
+    /* Contact */
+
+    #kontakt .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(10,10,18,0.95);
+      color: var(--text);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      font-family: inherit;
+    }
+
+    textarea {
+      border-radius: 16px;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(229,181,103,0.4);
+      background: rgba(10,10,20,1);
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info p {
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 2.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      #start {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      nav ul {
+        display: none; /* simple mobile version, kann später zu Burger-Menü erweitert werden */
+      }
+
+      .nav-container {
+        justify-content: space-between;
+      }
+
+      #portfolio .portfolio-grid,
+      #leistungen .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #ueber-mich .about-wrap,
+      #kontakt .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-inline: 1.1rem;
+      }
+
+      #portfolio .portfolio-grid,
+      #leistungen .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-mark">BV</div>
+        <span>Baki Videography</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#start">Start</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#ueber-mich">Über mich</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section id="start">
+      <div>
+        <div class="hero-eyebrow">Cinematic Videography</div>
+        <h1 class="hero-title">
+          Baki Videography
+          <span>Hochzeiten · Commercials · Social Media Content</span>
+        </h1>
+        <p class="hero-text">
+          Ich erzähle Geschichten in bewegten Bildern – von emotionalen Hochzeiten
+          bis zu wirkungsvollen Werbefilmen und Social Media Videos für Unternehmen.
+          Modern, clean und mit einem Hauch Kino.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn-primary">Portfolio ansehen</a>
+          <a href="#kontakt" class="btn-secondary">Kontakt aufnehmen</a>
+        </div>
+        <div class="hero-meta">
+          <span>Hochzeitsfilme</span>
+          <span>Commercial & Branding</span>
+          <span>Social Media Kampagnen</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <div class="hero-frame-text">
+            <h2>Cinematic Look</h2>
+            <p>
+              Authentische Momente, klare Bilder, präziser Schnitt.
+              Perfekt für Hochzeiten, Unternehmen & Social Media.
+            </p>
+            <div class="hero-play">▶</div>
+          </div>
+          <div class="hero-tag">Showreel • Coming Soon</div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>4K Video Production</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="section-heading">
+        <div class="section-kicker">Portfolio</div>
+        <h2 class="section-title">Ausgewählte Projekte</h2>
+        <p class="section-subtitle">
+          Eine Auswahl meiner Arbeiten aus Hochzeiten, Commercials und Social Media Produktionen.
+          Die Platzhalter-Videos können später durch eingebettete YouTube- oder Vimeo-Links ersetzt werden.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-item">
+          <div class="portfolio-thumb">
+            <!-- Hier später echtes Video/Thumbnail einfügen -->
+          </div>
+          <div class="portfolio-label">Hochzeiten</div>
+          <div class="portfolio-title">Emotionaler Hochzeitsfilm</div>
+          <div class="portfolio-meta">Ganztagesbegleitung · Highlightfilm · Social Media Cut</div>
+        </article>
+
+        <article class="portfolio-item">
+          <div class="portfolio-thumb"></div>
+          <div class="portfolio-label">Commercial</div>
+          <div class="portfolio-title">Brand Story für Unternehmen</div>
+          <div class="portfolio-meta">Imagefilm · Brand Story · Website & Social Media</div>
+        </article>
+
+        <article class="portfolio-item">
+          <div class="portfolio-thumb"></div>
+          <div class="portfolio-label">Social Media</div>
+          <div class="portfolio-title">Shortform Kampagne</div>
+          <div class="portfolio-meta">Vertikale Clips · Ads · Instagram & TikTok</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section id="leistungen">
+      <div class="section-heading">
+        <div class="section-kicker">Leistungen</div>
+        <h2 class="section-title">Was ich anbiete</h2>
+        <p class="section-subtitle">
+          Von der Idee bis zum finalen Schnitt begleite ich Sie bei Ihrem Videoprojekt – passend zu Marke, Zielgruppe und Budget.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-tag">Hochzeiten</div>
+          <h3 class="service-title">Hochzeitsfilme</h3>
+          <p class="service-text">
+            Hochwertige Hochzeitsvideos – vom Getting Ready bis zur letzten Tanzrunde.
+            Unauffällige Begleitung, cineastischer Look und ein Film, der eure Geschichte
+            immer wieder erlebbar macht.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-tag">Unternehmen</div>
+          <h3 class="service-title">Commercial & Imagefilm</h3>
+          <p class="service-text">
+            Professionelle Videoproduktionen für Unternehmen – ob Imagefilm, Produktvideo
+            oder Recruiting-Clip. Von der Konzeption bis zum fertigen Film aus einer Hand.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-tag">Social Media</div>
+          <h3 class="service-title">Social Media Videos</h3>
+          <p class="service-text">
+            Kurz, prägnant und optimiert für Plattformen wie Instagram, TikTok & Co.
+            Ideal für Kampagnen, Ads oder regelmäßigen Content, der in den ersten Sekunden überzeugt.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section id="ueber-mich">
+      <div class="section-heading">
+        <div class="section-kicker">Über mich</div>
+        <h2 class="section-title">Baki Videography</h2>
+      </div>
+
+      <div class="about-wrap">
+        <div class="about-text">
+          <p>
+            Ich bin Baki, Videograf mit Fokus auf Hochzeiten, Commercials und Social Media Content.
+            Mein Stil ist modern, clean und cineastisch – mit Liebe zum Detail, natürlichem Licht
+            und authentischen Momenten.
+          </p>
+          <br />
+          <p>
+            Egal ob emotionale Hochzeit, starkes Brand-Statement oder viraler Social-Media-Clip:
+            Mir ist wichtig, dass jedes Video zu Ihnen, Ihrer Geschichte und Ihrer Zielgruppe passt.
+          </p>
+        </div>
+
+        <div class="about-highlight">
+          <p>
+            <strong>Wie ich arbeite:</strong><br />
+            • Gemeinsames Kennenlernen & Briefing<br />
+            • Klare Planung von Dreh & Ablauf<br />
+            • Professioneller Dreh mit Fokus auf Atmosphäre & Emotion<br />
+            • Sorgfältiger Schnitt, Sounddesign & Color Grading<br /><br />
+            Auf Wunsch erstelle ich zusätzlich optimierte Versionen für Social Media.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt">
+      <div class="section-heading">
+        <div class="section-kicker">Kontakt</div>
+        <h2 class="section-title">Projekt anfragen</h2>
+        <p class="section-subtitle">
+          Erzählen Sie mir kurz von Ihrem Projekt – ich melde mich schnellstmöglich mit weiteren Infos
+          und einem unverbindlichen Angebot.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <form>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Ihr Name" required />
+          </div>
+
+          <div>
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" type="email" placeholder="email@beispiel.de" required />
+          </div>
+
+          <div>
+            <label for="projektart">Art des Projekts</label>
+            <select id="projektart" name="projektart">
+              <option>Hochzeitsfilm</option>
+              <option>Commercial / Unternehmensvideo</option>
+              <option>Social Media Content</option>
+              <option>Sonstiges Projekt</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Datum, Ort, Art des Projekts, besondere Wünsche ..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Anfrage senden</button>
+        </form>
+
+        <div class="contact-info">
+          <p>
+            Sie können mich auch direkt per E-Mail oder über Social Media erreichen:
+          </p>
+          <p>
+            <span class="contact-chip">E-Mail: info@bakivideography.de</span><br />
+            <span class="contact-chip">Instagram: @bakivideography</span>
+          </p>
+          <p>
+            Die hier eingetragene E-Mail-Adresse und Social Media Handles sind Platzhalter
+            und können einfach im Code angepasst werden.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Baki Videography. Alle Rechte vorbehalten.</div>
+    <div>Impressum &amp; Datenschutz (Platzhalter)</div>
+  </footer>
+
+  <script>
+    // aktuelles Jahr im Footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
